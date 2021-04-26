@@ -8,7 +8,14 @@
 # years that are evenly divisible by 100
 # unless the years are also evenly divisible by 400.
 
-year = int(input("Enter the year: "))
+success = False
+while not success:
+    userInput = input("Enter the year: ")
+    try:
+        year = int(userInput)
+        success = True
+    except ValueError:
+        print("%s is not valid user input" % userInput)
 
 if year % 4 == 0 and (not (year % 100 == 0) or (year % 400 == 0)):
     print("%d is a leap year." % year)
